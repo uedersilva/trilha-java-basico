@@ -66,9 +66,24 @@ https://github.com/glysns/trilha-java-basico/desafios/poo/README.md
 ### SOLUÇÃO
 ```mermaid
 classDiagram
-    Iphone "1" --> "*" NavegadorNaInternet : Implementa
-    Iphone "1" --> "1" AparelhoTelefonico : Implementa
-    Iphone "1" --> "*" ReprodutorMusical : Implementa
+
+    class  ReprodutorMusical{
+        +tocar()
+        +pausar()
+        +selecionarMusica(String musica)
+    }
+
+    class AparelhoTelefonico{
+        +ligar(String numero)
+        +atender()
+        +iniciarCorreioDeVoz()
+    }
+    class NavegadorNaInternet{
+        +exibirPagina(String url)
+        +adicionarNovaAba()
+        +atualizarPagina()
+    }
+
     class Iphone{
         +exibirPagina()
         +adicionarNovaAba()
@@ -81,21 +96,7 @@ classDiagram
         +selecionarMusica()
     }
 
-    class  ReprodutorMusical
-        <<interface>> ReprodutorMusical
-        ReprodutorMusical : +tocar()
-        ReprodutorMusical : +pausar()
-        ReprodutorMusical : +selecionarMusica(String musica)
-
-    class AparelhoTelefonico
-        <<interface>> AparelhoTelefonico
-        AparelhoTelefonico: +ligar(String numero)
-        AparelhoTelefonico : +atender()
-        AparelhoTelefonico : +iniciarCorreioDeVoz()
-
-    class NavegadorNaInternet
-        <<interface>> NavegadorNaInternet
-        NavegadorNaInternet : +exibirPagina(String url)
-        NavegadorNaInternet : +adicionarNovaAba()
-        NavegadorNaInternet : +atualizarPagina()
+    Iphone "1" --> "*" NavegadorNaInternet : Implementa
+    Iphone "1" --> "1" AparelhoTelefonico : Implementa
+    Iphone "1" --> "*" ReprodutorMusical : Implementa
 ```
